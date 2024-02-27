@@ -1,0 +1,67 @@
+pip install splashscreen_ctk
+
+Create a splash screen for a software, typically developed in custom tkinter.
+
+--------------------------------------------------
+import splashscreen_ctk as splash
+import threading, time
+
+
+def do_jobs():
+    set_splash_text(f"Doing something...")
+    start_thread(do_something, "Hello,", "world")
+
+    set_splash_text(f"Doing something else...")
+    start_thread(do_something_else, "Goodbye,", "world!")
+    
+    set_splash_text("Loading complete!")
+    test.close_splashscreen = True 
+
+
+def start_thread(target, *args):
+    # Use threading for complicated actions that would freeze tkinter / cause not responding warning.
+    loading_thread = threading.Thread(target=target, args=[arg for arg in args])
+    loading_thread.start()
+    while loading_thread.is_alive():
+        time.sleep(1)
+
+
+def do_something(text1, text2):
+    print(text1, text2)
+    time.sleep(5)
+
+
+def do_something_else(text1, text2):
+    print(text1, text2)
+    time.sleep(5)  
+
+
+def set_splash_text(text):
+    # Note changes to splash text will not work if called from any other thread than main thread.
+    test.splash_status_text.set(text)
+    test.update()
+    
+
+test = splash.SplashScreen("path_to_image.jpg", # Can be any image file type that works with PILLOW / CTkImage.
+                            initial_status_value="Loading...",
+                            app_info="Your Application v1.0.0",
+                            app_info_font=("helvetica", 36),
+                            app_info_text_color="#333333",
+                            status_font=("helvetica", 18),
+                            status_text_colour="#222222")
+
+test.after(5, do_jobs)
+test.mainloop()
+--------------------------------------------------
+
+OS independant
+Python 3
+
+install requires:
+ - customtkinter 0.3, url: https://pypi.org/project/customtkinter/0.3/, url: https://customtkinter.tomschimansky.com/
+
+--------------------------------------------------
+
+GitHub url: https://github.com/DevDolphin7/SplashScreen
+PyPI url: https://pypi.org/project/splashscreen_ctk/
+Get in contact: DevDolphin7@outlook.com
