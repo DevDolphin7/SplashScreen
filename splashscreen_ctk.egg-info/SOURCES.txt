@@ -1,0 +1,10 @@
+LICENSE
+README.txt
+pyproject.toml
+setup.py
+splashscreen_ctk/__init__.py
+splashscreen_ctk.egg-info/PKG-INFO
+splashscreen_ctk.egg-info/SOURCES.txt
+splashscreen_ctk.egg-info/dependency_links.txt
+splashscreen_ctk.egg-info/requires.txt
+splashscreen_ctk.egg-info/top_level.txt
