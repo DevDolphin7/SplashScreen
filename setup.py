@@ -8,5 +8,6 @@ setup(
     name='splashscreen_ctk',
     version='0.2.1',
     long_description=long_description,
-    long_description_content_type="text/plain"
+    long_description_content_type="text/plain",
+    py_modules=[]
 )

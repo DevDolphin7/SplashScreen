@@ -1,3 +1,4 @@
 v0.1.0: Initial release
 v0.2.0: Added image loading from bytes or str, instead of just str.
 v0.2.1: Bug fix where pip is not installing the package
+v0.2.2: Another bug fix where pip is not installing the package
