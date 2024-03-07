@@ -1,5 +1,6 @@
 import customtkinter as ctk
 from PIL import Image
+import io
 
 
 class SplashScreen(ctk.CTk):
@@ -58,7 +59,11 @@ class SplashScreen(ctk.CTk):
                           "app_info_text_color": [self._app_info_text_color, str]}
         
         for name, var_list in user_variables.items():
-            if var_list[1] == tuple:
+            if name == "image_path":
+                if type(self._image_path) == bytes:
+                    self._image_path = io.BytesIO(bytearray(self._image_path))
+                
+            elif var_list[1] == tuple:
                 if len(var_list[0]) != 2: raise ValueError (f"{name} should only contain (font_as_str, size_as_int), {var_list[0]} was provided.")
                 elif type(var_list[0][0]) != str: raise TypeError(f"{name} should only contain (font_as_str, size_as_int), {type(var_list[0][0])} was provided for font.")
                 elif type(var_list[0][1]) != int: raise TypeError(f"{name} should only contain (font_as_str, size_as_int), {type(var_list[0][1])} was provided for size.")

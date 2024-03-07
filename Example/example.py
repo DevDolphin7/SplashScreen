@@ -1,8 +1,3 @@
-pip install splashscreen_ctk
-
-Create a splash screen for a software, typically developed in custom tkinter.
-
---------------------------------------------------
 import splashscreen_ctk as splash
 import threading, time
 
@@ -20,9 +15,9 @@ def do_jobs():
 
 def start_thread(target, *args):
     # Use threading for complicated actions that would freeze tkinter / cause not responding warning.
-    loading_thread = threading.Thread(target=target, args=[arg for arg in args])
-    loading_thread.start()
-    while loading_thread.is_alive():
+    complex_action = threading.Thread(target=target, args=[arg for arg in args])
+    complex_action.start()
+    while complex_action.is_alive():
         time.sleep(1)
 
 
@@ -37,7 +32,7 @@ def do_something_else(text1, text2):
 
 
 def set_splash_text(text):
-    # Note changes to splash text will not work if called from any other thread than main thread.
+    # Note changes to splash text will not work if called from any other thread than main, e.g: it won't work if called from do_something_complex()
     test.splash_status_text.set(text)
     test.update()
     
@@ -52,16 +47,3 @@ test = splash.SplashScreen("path_to_image.jpg", # Can be any image file type tha
 
 test.after(5, do_jobs)
 test.mainloop()
---------------------------------------------------
-
-OS independant
-Python 3
-
-install requires:
- - customtkinter 0.3, url: https://pypi.org/project/customtkinter/0.3/, url: https://customtkinter.tomschimansky.com/
-
---------------------------------------------------
-
-GitHub url: https://github.com/DevDolphin7/SplashScreen
-PyPI url: https://pypi.org/project/splashscreen_ctk/
-Get in contact: DevDolphin7@outlook.com

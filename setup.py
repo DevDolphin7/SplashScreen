@@ -6,7 +6,7 @@ long_description = (this_directory / "README.txt").read_text()
 
 setup(
     name='splashscreen_ctk',
-    version='0.1.0',
+    version='0.2.0',
     long_description=long_description,
     long_description_content_type="text/plain"
 )
